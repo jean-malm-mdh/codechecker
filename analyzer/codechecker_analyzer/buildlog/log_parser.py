@@ -1250,6 +1250,8 @@ def parse_unique_log(compilation_database,
     analyzer_clang_version -- version information about the clang which is
                               used to execute the analysis
     """
+
+    _entry = None
     try:
         uniqued_build_actions = dict()
 
@@ -1281,6 +1283,8 @@ def parse_unique_log(compilation_database,
                          entry['file'])):
                 skipped_cmp_cmd_count += 1
                 continue
+
+            _entry = entry
 
             action = parse_options(entry,
                                    compiler_info_file,
@@ -1345,6 +1349,7 @@ def parse_unique_log(compilation_database,
             LOG.error('The compile database is empty.')
         else:
             LOG.error('The compile database is not valid.')
+            LOG.error('Invalid entry found: ' + str(_entry['file']))
         LOG.debug(traceback.format_exc())
         LOG.debug(ex)
         sys.exit(1)
