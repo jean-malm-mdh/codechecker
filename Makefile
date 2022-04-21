@@ -98,6 +98,7 @@ venv:
 	# Create a virtual environment which can be used to run the build package.
 	python3 -m venv venv --prompt="CodeChecker venv" && \
 		$(ACTIVATE_RUNTIME_VENV) && \
+		pip3 install wheel && \
 		cd $(CC_ANALYZER) && pip3 install -r requirements.txt && \
 		cd $(CC_WEB) && pip3 install -r $(CC_WEB)/requirements.txt
 
