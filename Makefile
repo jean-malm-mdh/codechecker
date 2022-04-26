@@ -118,6 +118,7 @@ PIP_DEV_DEPS_CMD = $(MAKE) -C $(CC_ANALYZER) pip_dev_deps && \
 
 pip_dev_deps:
 	# Install the depencies for analyze, web and the tools.
+	pip install wheel
 	$(PIP_DEV_DEPS_CMD)
 
 venv_dev:
