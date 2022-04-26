@@ -28,3 +28,19 @@ def test_plist_report_diagnostics():
     assert first_report.location == expected_loc
     assert result.files[first_report.location.file_id] == './testdata/has_assertion.cpp'
 
+
+def test_report_bugpath():
+    result = parse_result_file('./testdata/has_one_report.plist')
+    first_report = result.reports[0]
+
+    bugpath = first_report.bug_path
+    EXPECTED_LENGTH = 8
+    assert len(bugpath) == EXPECTED_LENGTH
+    for i in range(EXPECTED_LENGTH-1):
+        assert bugpath[i].end_loc == bugpath[i+1].start_loc
+    warning = bugpath.get_warning()
+    assert warning.message == 'Dereference of null pointer'
+
+
+# def test_scenario_bugpath_ends_in_assertion():
+
