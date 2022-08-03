@@ -411,7 +411,7 @@
 	</array>
 	<key>files</key>
 	<array>
-		<string>./testdata/has_assertion.cpp</string>
+		<string>/home/jmm01/codechecker/analyzer/tools/testcode_analyzer/test/testdata/has_assertion.cpp</string>
 	</array>
 	<key>metadata</key>
 	<dict>

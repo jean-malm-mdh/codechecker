@@ -1,8 +1,10 @@
 import os.path
 import typing
 import plistlib
+import sys
+sys.path.append('')
 
-
+#TODO: This file has a lot of info ~/codechecker/tools/report-converter/codechecker_report_converter/report/__init__.py
 class Location:
     def __init__(self, fileID: int, row: int, col: int):
         self.line = row
